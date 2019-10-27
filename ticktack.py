@@ -8,7 +8,7 @@ def win(current_game):
             return False
      # horizontal
     for row in game:
-        print(row)
+       # print(row)
         if all_same(row):
             print(f"Player {row[0]} is the winner horizontally!")
             return True
