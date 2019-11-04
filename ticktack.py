@@ -38,7 +38,8 @@ def win(current_game):
     return False
 
 def game_board(game,player=0,row=0,column=0,display=False):
-    try:    
+    try:
+        
         if game[row][column]!=0:
             print("already occupied ")
             return game, False
@@ -75,8 +76,17 @@ while play:
         while not played:
             column_choice=int(input("enter column: "))
             row_choice=int(input("enter row: "))
+            x=0
+            y=0
             game, played=game_board(game,current_player,row_choice,column_choice)
-        if win(game):
+            for i in range(game_size):
+                for j in range(game_size):
+                    if game[i][j]!=0:
+                        x = x+1
+            if x== game_size*game_size:
+                print("match draw")
+                y=1            
+        if win(game) or y==1:
             game_won=True
             again=input("would like to play again(y/n)")
             if again.lower()=="y":
